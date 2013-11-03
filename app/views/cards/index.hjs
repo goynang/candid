@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>{{ page_title }}</title>
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Handlee">
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Super awesome project?</h1>
+      <ol class="board">
+        <li class="list todo" data-ref="1">
+          <h2>To do</h2>
+          <ol class="cards">{{#cards}}
+            <li class="card" data-ref="?"><a href="./card-?">{{summary}} <em class="todo">{{cost}}</em></a></li>{{/cards}}
+            <li class="card-proxy">
+              <form class="new-card-form" method="post" action="/new">
+                <textarea name="summary" class="new-card-summary" placeholder="Enter new card summary here..."></textarea>
+                <em class="unset">?</em>
+              </form>
+            </li>
+          </ol>
+        </li>
+        <li class="list doing" data-ref="2">
+          <h2>Doing</h2>
+          <ol class="cards">
+            <li class="card" data-ref="5"><a href="./card-n">Create super awesome user interface  <em class="started">3</em></a></li>
+            <li class="card" data-ref="6"><a href="./card-n">Decide what server technology to use <em class="done">3</em></a></li>
+            <li class="card" data-ref="7"><a href="./card-n">Decide upon base feature set <em class="started">6</em></a></li>
+          </ol>
+        </li>
+        <li class="list testing" data-ref="3">
+          <h2>Testing</h2>
+          <ol class="cards">
+            <li class="card" data-ref="5"><a href="./card-n">Create super awesome user interface  <em class="started">3</em></a></li>
+            <li class="card stack" data-ref="6"><a href="./card-n">Decide what server technology to use <em class="done">3</em></a></li>
+            <li class="card" data-ref="7"><a href="./card-n">Decide upon base feature set <em class="started">6</em></a></li>
+          </ol>
+        </li>
+        <li class="list done" data-ref="4">
+          <h2>Done</h2>
+          <ol class="cards">
+            <li class="card" data-ref="8"><a href="./card-n">Learn how to type <em class="done">1</em></a></li>
+            <li class="card" data-ref="9"><a href="./card-n">Learn how to program a computer <em class="done">4</em></a></li>
+            <li class="card" data-ref="10"><a href="./card-n">Learn JavaScript <em class="done">3</em></a></li>
+            <li class="card" data-ref="11"><a href="./card-n">Learn Node.js, express, and mongo <em class="done">3</em></a></li>
+          </ol>
+        </li>
+      </ol>
+      <ul class="people">
+        <li class="person" data-ref="1"></li>
+        <li class="person" data-ref="2"></li>
+        <li class="person" data-ref="3"></li>
+        <li class="person" data-ref="3"></li>
+        <li class="person" data-ref="4"></li>
+      </ul>
+      <div id="modal">
+        I'm a modal window
+      </div>
+    </div>
+    
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/underscore-min.js"></script>
+    <script src="/javascripts/json2.js"></script>
+    <script src="/javascripts/backbone-min.js"></script>
+    <script src="/javascripts/backbone.localStorage-min.js"></script>
+    <script src="/javascripts/client.js"></script>
+    
+    <script id="card-template" type="text/template">
+      <li class="card" data-ref="?"><a href="./card-?"><%= summary %> <em class="todo">?</em></a></li>
+    </script>
+  </body>
+</html>

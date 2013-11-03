@@ -1,0 +1,239 @@
+html {
+  height: 100%;
+  background: #000000 url(/images/bg.png);
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: -8;
+}
+body {
+  background: rgba(0, 0, 0, 0.66);
+  box-shadow: 0 0 150px rgba(0, 0, 0, 0.5) inset;
+  padding: 1em 2em;
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  font-family: 'Handlee', arial, sans-serif;
+  position: relative;
+  z-index: -7;
+}
+#app {
+  position: relative;
+  z-index: -6;
+}
+#modal {
+  display: none;
+}
+.ui-dialog {
+  background: #FFF;
+  padding: 1em;
+  width: 30em;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33), 0 0 20px rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid #FFF;
+}
+.ui-dialog-titlebar-close {
+  display: none;
+}
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(24, 16, 8, 0.5);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Roboto Slab', arial, sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0;
+  font-size: 1.5em;
+  padding: 0.5em 1.25em;
+  line-height: 1;
+  position: relative;
+  color: #FFF;
+  overflow: hidden;
+}
+h1 span {
+  float: right;
+}
+h2 {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0 2.5em;
+  margin: 0 0 0.5em 0;
+}
+a {
+  text-decoration: none;
+  color: #2984ad;
+}
+ol,
+ul,
+li {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.board {
+  overflow: visible;
+  padding: 0;
+  margin: 0 -75% 0 -25%;
+  position: relative;
+  z-index: -3;
+}
+.list {
+  box-sizing: border-box;
+  width: 12.5%;
+  float: left;
+  position: relative;
+}
+.cards {
+  padding: 1em;
+  margin: 0 2%;
+  background: rgba(255, 255, 255, 0.05);
+  overflow-y: scroll;
+  height: 35em;
+  border-radius: 4px;
+}
+.wanted .cards {
+  height: 30em;
+}
+.wanted {
+  opacity: 0.33;
+  -webkit-transition: all 0.5s ease;
+}
+.wanted:hover {
+  opacity: 1;
+  margin-left: 11%;
+  -webkit-transition: all 0.5s ease;
+}
+.done .cards {
+  border-right: none;
+}
+.card,
+.card-proxy {
+  overflow: visible;
+  font-size: 0.8em;
+  position: relative;
+}
+.card a,
+.card-proxy form {
+  display: block;
+  margin: 0 0 0.5em 0;
+  padding: 1em 3em 1em 1em;
+  background: #FFF;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33), 0 0 20px rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid #FFF;
+  border-radius: 4px;
+}
+.card-proxy {
+  position: absolute;
+  bottom: -6em;
+  right: 1.5em;
+  left: 1.5em;
+}
+h2:hover,
+.card:hover,
+.person:hover {
+  cursor: pointer;
+}
+.extra {
+  display: block;
+  border-top: 1px solid #DDD;
+  margin: 0.5em 0 0 0;
+  padding: 0.5em 0 0 0;
+}
+em {
+  font-family: 'Roboto Slab', arial, sans-serif;
+  background: #999;
+  color: #FFF;
+  position: absolute;
+  top: 0.66em;
+  right: 0.5em;
+  line-height: 2em;
+  width: 2em;
+  height: 2em;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  font-style: normal;
+  border-radius: 2em;
+}
+em.todo {
+  background: #912b27;
+}
+em.started {
+  background: #f8c072;
+}
+em.done {
+  background: #4e823f;
+}
+.stack a {
+  position: relative;
+}
+.stack a:before,
+.stack a:after {
+  z-index: -1;
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: 0em;
+  top: 0em;
+  width: 100%;
+  background: #EEE;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33), 0 0 20px rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid #FFF;
+  border-radius: 4px;
+}
+.stack a:before {
+  left: -0.5em;
+  -webkit-transform: rotate(2deg);
+}
+.stack a:after {
+  left: 0.25em;
+  -webkit-transform: rotate(-1deg);
+}
+textarea {
+  width: 100%;
+  height: 2.5em;
+  font-size: 1em;
+  border: none;
+  margin: -0.5em;
+  padding: 0.5em;
+  background: none;
+  font-family: 'Handlee', arial, sans-serif;
+}
+textarea:focus {
+  outline: none;
+  width: 100%;
+}
+.stickers {
+  clear: both;
+  overflow: hidden;
+  font-size: 1.25em;
+  margin: 0.25em 0 -0.25em 0;
+}
+.people {
+  clear: both;
+  overflow: hidden;
+  padding: 0.5em 0 0 2em;
+}
+.person {
+  background: url(/images/face.png) no-repeat center;
+  background-size: cover;
+  border-radius: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  float: left;
+  margin: 0 0.25em 0 0;
+}
